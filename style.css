@@ -1,0 +1,71 @@
+:root{
+    --primary-color:#185a8c;
+    --primary-font-family:'Nunito Sans', sans-serif;
+}
+.text-primary{
+    color: var(--primary-color) !important;
+    font-family:var(--primary-font-family) !important;
+}
+.btn-primary{
+    background-color:var(--primary-color);
+    font-family:var(--primary-font-family) !important;
+    border:none;
+}
+.form-control {
+    position:relative;
+    outline:none;
+    border-left:none;
+    border-top:none;
+    border-right:none;
+    border-bottom : 1.5px solid #cbcbcb;
+    border-radius:unset;
+    color:var(--primary-color) !important;
+    font-family:var(--primary-font-family) !important;
+    
+}
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: unset;
+    outline: 0;
+    box-shadow: unset;
+}
+
+.form-group span {
+    color: #707070;
+    position: absolute;
+    font-size:small;
+    right:35px;
+}
+
+.form-group label {
+    color:#707070;
+    font-family:var(--primary-font-family) !important;
+}
+
+.form-group {
+    margin-bottom:30px;
+}
+.form-check-input:checked {
+    background-color:#185a8c;
+    border-color: #185a8c;
+    outline:none;
+    border-width:1px;
+    font-family:var(--primary-font-family) !important;
+}
+.form-check-input{
+    background-color:#fff;
+    border-color: #185a8c;
+    outline:none;
+    border-width:1.5px;
+    font-family:var(--primary-font-family) !important;
+}
+.link-primary {
+    color: var(--primary-color) !important;
+    text-decoration: none;
+    font-family:var(--primary-font-family) !important;
+}
+.form-group .phonecode {
+    color:var(--primary-color);
+    font-family:var(--primary-font-family) !important;
+}
