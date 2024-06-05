@@ -131,20 +131,6 @@
        document.getElementById(formId).classList.remove('hidden');
        });
        });
-       
-       const loginOption = document.querySelector('input[name="loginOption"]');
-       const customerIDInput = document.getElementById('customerIDInput');
-       const mobileNumberInput = document.getElementById('mobileNumberInput');
-       
-       loginOption.addEventListener('change', (event) => {
-       if (event.target.value === 'customerID') {
-       customerIDInput.classList.remove('hidden');
-       mobileNumberInput.classList.add('hidden');
-       } else if (event.target.value === 'mobileNumber') {
-       customerIDInput.classList.add('hidden');
-       mobileNumberInput.classList.remove('hidden');
-       }
-       });
   </script> 
  </body>
 </html>
